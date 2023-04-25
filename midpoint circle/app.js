@@ -7,14 +7,14 @@ function drawCircle(centerX, centerY, radius) {
   
     while (x >= y) {
       // Add points in all octants
-      pointarray.push((centerX + x)/10, (centerY + y)/10);
-      pointarray.push((centerX + y)/10, (centerY + x)/10);
-      pointarray.push((centerX - y)/10, (centerY + x)/10);
-      pointarray.push((centerX - x)/10, (centerY + y)/10);
-      pointarray.push((centerX - x)/10, (centerY - y)/10);
-      pointarray.push((centerX - y)/10, (centerY - x)/10);
-      pointarray.push((centerX + y)/10, (centerY - x)/10);
-      pointarray.push((centerX + x)/10, (centerY - y)/10);
+      pointarray.push((centerX + y)/100, (centerY + x)/100);
+      pointarray.push((centerX + x)/100, (centerY + y)/100);
+      pointarray.push((centerX - y)/100, (centerY + x)/100);
+      pointarray.push((centerX - x)/100, (centerY + y)/100);
+      pointarray.push((centerX - x)/100, (centerY - y)/100);
+      pointarray.push((centerX - y)/100, (centerY - x)/100);
+      pointarray.push((centerX + y)/100, (centerY - x)/100);
+      pointarray.push((centerX + x)/100, (centerY - y)/100);
   
       y++;
       if (radiusError < 0) {
@@ -40,7 +40,7 @@ attribute vec2 vertPosition;
 void main()
 {
     gl_Position = vec4(vertPosition, 0.0,1.0);
-    gl_PointSize = 8.0;
+    gl_PointSize = 3.0;
 }`
 /* Initiallizing fragment shader source code for points */
 var fragmentShaderText = `
@@ -164,7 +164,7 @@ var initdemo = function(){
                   /////////////////////////////////////////////////////
                   var lineVertices1 = []
               
-                  lineVertices1 = drawCircle(0,0,6)
+                  lineVertices1 = drawCircle(0,0,69)
                   console.log(lineVertices1)
                   var lineVertexBufferObject = gl.createBuffer();
                   gl.bindBuffer(gl.ARRAY_BUFFER,lineVertexBufferObject);

@@ -15,10 +15,10 @@ function midpointEllipse(xc, yc, a, b) {
         y--;
       }
       x++;
-      coordinates.push((x + xc)/10, (y + yc)/10);
-      coordinates.push((x + xc)/10, -(y + yc)/10);
-      coordinates.push(-(x + xc)/10, (y + yc)/10);
-      coordinates.push(-(x + xc)/10, -(y + yc)/10);
+      coordinates.push((x + xc)/100, (y + yc)/100);
+      coordinates.push((x + xc)/100, -(y + yc)/100);
+      coordinates.push(-(x + xc)/100, (y + yc)/100);
+      coordinates.push(-(x + xc)/100, -(y + yc)/100);
       
     }
   
@@ -26,10 +26,10 @@ function midpointEllipse(xc, yc, a, b) {
     d = Math.round(bSq * (x + 0.5) * (x + 0.5) + aSq * (y - 1) * (y - 1) - aSq * bSq);
   
     while (y >= 0) {
-      coordinates.push((x + xc)/10, (y + yc)/10);
-      coordinates.push((x + xc)/10, -(y + yc)/10);
-      coordinates.push(-(x + xc)/10, (y + yc)/10);
-      coordinates.push(-(x + xc)/10, -(y + yc)/10);
+      coordinates.push((x + xc)/100, (y + yc)/100);
+      coordinates.push((x + xc)/100, -(y + yc)/100);
+      coordinates.push(-(x + xc)/100, (y + yc)/100);
+      coordinates.push(-(x + xc)/100, -(y + yc)/100);
       if (d > 0) {
         d += aSq * ((-2) * y + 3);
       } else {
@@ -53,7 +53,7 @@ attribute vec2 vertPosition;
 void main()
 {
     gl_Position = vec4(vertPosition, 0.0,1.0);
-    gl_PointSize = 8.0;
+    gl_PointSize = 3.0;
 }`
 /* Initiallizing fragment shader source code for points */
 var fragmentShaderText = `
@@ -178,7 +178,7 @@ var axisVertices1 =                                               //give vertex 
     /////////////////////////////////////////////////////
     var lineVertices1 = []
 
-    lineVertices1 = midpointEllipse(0, 0, 8, 5)
+    lineVertices1 = midpointEllipse(0, 0, 50, 90)
     console.log(lineVertices1)
     var lineVertexBufferObject = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER,lineVertexBufferObject);

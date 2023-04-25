@@ -16,7 +16,7 @@ function bla(x1,y1,x2,y2) {
         
         let x = x1
         let y = y1
-        arr.push(x/10,y/10)
+        arr.push(x/100,y/100)
 
 
         delX = x2 - x1
@@ -28,13 +28,13 @@ function bla(x1,y1,x2,y2) {
             if(p[i-1]<0){
                 x = x+1
                 y=y
-                arr.push(x/10,y/10)
+                arr.push(x/100,y/100)
                 p[i] =p[i-1]+ 2*delY
             }
             else{
                 x=x+1
                 y=y+1
-                arr.push(x/10,y/10)
+                arr.push(x/100,y/100)
                 p[i]= p[i-1]+ 2*delY - 2*delX
 
             }
@@ -43,7 +43,7 @@ function bla(x1,y1,x2,y2) {
     else{
         let x = x1
         let y = y1
-        arr.push(x/10,y/10)
+        arr.push(x/100,y/100)
         delX = x2 - x1
         delY = y2 - y1
         p = []
@@ -53,13 +53,13 @@ function bla(x1,y1,x2,y2) {
             if(p[i-1]<0){
                 x = x
                 y=y+1
-                arr.push(x/10,y/10)
+                arr.push(x/100,y/100)
                 p[i] =p[i-1]+ 2*delX
             }
             else{
                 x=x+1
                 y=y+1
-                arr.push(x/10,y/10)
+                arr.push(x/100,y/100)
                 p[i]= p[i-1]+ 2*delX - 2*delY
 
             }
@@ -81,7 +81,7 @@ attribute vec2 vertPosition;
 void main()
 {
     gl_Position = vec4(vertPosition, 0.0,1.0);
-    gl_PointSize = 8.0;
+    gl_PointSize = 3.0;
 }`
 /* Initiallizing fragment shader source code for points */
 var fragmentShaderText = `
@@ -206,7 +206,7 @@ var axisVertices1 =                                               //give vertex 
     /////////////////////////////////////////////////////
     var lineVertices1 = []
 
-    lineVertices1 = bla(-7,-5,9,8)
+    lineVertices1 = bla(-72,-55,94,81)
     console.log(lineVertices1)
     var lineVertexBufferObject = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER,lineVertexBufferObject);
